@@ -50,19 +50,19 @@ feature 'MouseMelon features' do
   # Steps shared via modules
   include CommonSteps
 
-  scenario 'Without gherkin' do
+  scenario 'Steps as methods' do
     given_is_defined
     when_is_defined
     then_is_defined
   end
 
-  scenario 'Gherkin steps as symbols' do
+  scenario 'Steps as symbols' do
     Given :given_is_defined
      When :when_is_defined
      Then :then_is_defined
   end
 
-  scenario 'Gherkin steps as strings' do
+  scenario 'Steps as strings' do
     Given 'given is defined'
      When 'when is defined'
      Then 'then is defined'
@@ -70,13 +70,13 @@ feature 'MouseMelon features' do
       And 'and it has arguments', 'hello', 1
   end
 
-  scenario 'Gherkin steps as triangle bullets' do
+  scenario 'Steps as triangle bullets' do
     ‣ 'given is defined'
     ‣ 'when is defined'
     ‣ 'then is defined'
   end
 
-  scenario 'Gherkin steps as circle bullets' do
+  scenario 'Steps as circle bullets' do
     • 'given is defined'
     • 'when is defined'
     • 'then is defined'
