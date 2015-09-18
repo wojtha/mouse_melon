@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'mouse_melon/tools'
+
+ARGV.each do |file|
+  string = File.read(file)
+  steps = MouseMelon::Tools::SpecStepsReport.new(string)
+  puts steps.report
+end
