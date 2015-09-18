@@ -6,13 +6,13 @@ MouseMelon is a pseudo-Gherkin DSL designed to be used in RSpec acceptance specs
 
 ## Notable features:
 
-  * It runs inside RSpec (Minispec will come later), just include module and you're ready
-  * `Given`, `When`, `Then` are just methods which calls the step definitions directly
-  * You can use symbols `I_am_registered_user` or feature steps `I am registered user`
-  * You can define the steps globally, locally or mix them into the specs
-  * Steps can have arguments `I register user`
-  * Command line tool to generate step definitions
-  * No fancy output of tested steps like Cucumber or Spinach
+  * It runs inside RSpec (Minitest support may come later): just include module and you're ready.
+  * `Given`, `When`, `Then` are just methods which calls the step definitions directly.
+  * You can use symbols `I_am_registered_user` or feature steps `I am registered user`.
+  * You can define the steps globally, locally or mix them into the specs.
+  * Steps can have arguments `I register user`.
+  * Command line tool to generate step definitions.
+  * No fancy output of tested steps like Cucumber or Spinach.
 
 ### Currently supported/tested environment:
 
