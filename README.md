@@ -45,7 +45,7 @@ Include it to RSpec helper
 
 ## Usage
 
-Here is demonstration of varios possible styles:
+Here is demonstration of various possible styles:
 
 ```ruby
 feature 'MouseMelon features' do
@@ -70,6 +70,12 @@ feature 'MouseMelon features' do
      Then 'then is defined'
       And 'and is defined'
       And 'and it has arguments', 'hello', 1
+  end
+
+  scenario 'Steps as Steps' do
+    Step 'given is defined'
+    Step 'when is defined'
+    Step 'then is defined'
   end
 
   scenario 'Steps as triangle bullets' do
