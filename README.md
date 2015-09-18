@@ -2,7 +2,9 @@
 
 MouseMelon is a pseudo-Gherkin DSL designed to be used in RSpec acceptance specs but it may be used elsewhere.
 
-Notable features:
+![Example of Gherkin feature vs MouseMelon spec](/assets/gherkin_vs_mouse_melon.png?raw=true "Gherkin vs MouseMelon")
+
+## Notable features:
 
   * It runs inside RSpec (Minispec will come later), just include module and you're ready
   * `Given`, `When`, `Then` are just methods which calls the step definitions directly
@@ -12,7 +14,7 @@ Notable features:
   * Command line tool to generate step definitions
   * No fancy output of tested steps like Cucumber or Spinach
 
-Currently supported/tested environment:
+### Currently supported/tested environment:
 
   * RSpec 3.3.x
   * Ruby 2.1.x
