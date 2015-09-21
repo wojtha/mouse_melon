@@ -2,7 +2,7 @@
 
 MouseMelon is a pseudo-Gherkin DSL designed to be used in RSpec acceptance specs but it may be used elsewhere.
 
-[![Build Status](https://travis-ci.org/wojtha/mouse_melon.svg?branch=master)](https://travis-ci.org/wojtha/mouse_melon) [![Code Climate](https://codeclimate.com/github/wojtha/mouse_melon/badges/gpa.svg)](https://codeclimate.com/github/wojtha/mouse_melon)
+[![Build Status](https://travis-ci.org/wojtha/mouse_melon.svg?branch=master)](https://travis-ci.org/wojtha/mouse_melon) [![Code Climate](https://codeclimate.com/github/wojtha/mouse_melon/badges/gpa.svg)](https://codeclimate.com/github/wojtha/mouse_melon) [![Test Coverage](https://codeclimate.com/github/wojtha/mouse_melon/badges/coverage.svg)](https://codeclimate.com/github/wojtha/mouse_melon/coverage)
 
 ![Example of Gherkin feature vs MouseMelon spec](/assets/gherkin_vs_mouse_melon.png?raw=true "Gherkin vs MouseMelon")
 
