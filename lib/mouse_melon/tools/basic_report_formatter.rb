@@ -30,7 +30,10 @@ MISSING:
       end
 
       def missing_steps_list
-        @report.not_implemented_steps.map { |name| StepDefinition.new(name, spaces: 2).to_s }.join("\n")
+        @report.not_implemented_steps.map do |name|
+          body = %q{skip "‣ '%s' at line #{__FILE__}:#{__LINE__}"} % name
+          StepDefinition.new(name, body: body, spaces: 2).to_s
+        end.join("\n")
       end
 
     end
