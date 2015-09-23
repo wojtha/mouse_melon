@@ -8,7 +8,7 @@ module MouseMelon
 
 Please define the step by one of the following definition:
 
-step \"#{@step_name}\" do
+step '#{@step_name}' do
 end
 
 or
