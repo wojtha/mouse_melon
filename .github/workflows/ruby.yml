@@ -19,6 +19,11 @@ jobs:
         bundle install --jobs 4 --retry 3
     - name: Test with Rake
       run: bundle exec rake coverage
+    - name: Format coverage
+      uses: aktions/codeclimate-test-reporter@v0
+      with:
+        command: format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
+        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
     - name: Send coverage to Code Climate
       uses: aktions/codeclimate-test-reporter@v0
       with:
