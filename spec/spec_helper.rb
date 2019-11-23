@@ -1,7 +1,9 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+if ENV['COVERAGE'] == '1'
+  require 'simplecov'
+  SimpleCov.start
+end
 
 require 'mouse_melon'
 
