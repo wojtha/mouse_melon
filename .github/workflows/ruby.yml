@@ -19,7 +19,7 @@ jobs:
         bundle install --jobs 4 --retry 3
     - name: Test with Rake
       run: bundle exec rake coverage
-    - name: Send test coverage to CodeClimate
-      run: codeclimate-test-reporter
-      env:
-        CODECLIMATE_REPO_TOKEN: 7784593d8bb89559b2abad1fbbc6bbb90bf58852c8b2ed236548f10fd74fb2ad
+    - name: Send coverage to Code Climate
+      uses: aktions/codeclimate-test-reporter@v0
+      with:
+        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
