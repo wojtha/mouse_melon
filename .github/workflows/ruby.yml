@@ -25,7 +25,8 @@ jobs:
 
     - name: Send code coverage
       run: |
-        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+        echo "Git branch: $GIT_BRANCH"
         codeclimate-test-reporter
       env:
+        GIT_BRANCH: ${{GITHUB_REF/refs\/heads\//}}
         CODECLIMATE_REPO_TOKEN: ${{secrets.CC_TEST_REPORTER_ID}}
