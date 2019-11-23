@@ -9,17 +9,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+
     - name: Build with bundler
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+
     - name: Test with Rake
       run: bundle exec rake coverage
-    - name: Send test coverage to CodeClimate
-      run: codeclimate-test-reporter
+
+    - name: Send code coverage
+      run: |
+        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+        codeclimate-test-reporter
       env:
-        CODECLIMATE_REPO_TOKEN: 7784593d8bb89559b2abad1fbbc6bbb90bf58852c8b2ed236548f10fd74fb2ad
+        CODECLIMATE_REPO_TOKEN: ${{secrets.CC_TEST_REPORTER_ID}}
