@@ -22,4 +22,5 @@ jobs:
     - name: Send coverage to Code Climate
       uses: aktions/codeclimate-test-reporter@v0
       with:
+        command: upload-coverage
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
