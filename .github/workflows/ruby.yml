@@ -12,9 +12,14 @@ jobs:
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
-    - name: Build and test with Rake
+        ruby-version: 2.6.5
+    - name: Build with bundler
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec rake
+    - name: Test with Rake
+      run: bundle exec rake coverage
+    - name: Send test coverage to CodeClimate
+      run: codeclimate-test-reporter
+      env:
+        CODECLIMATE_REPO_TOKEN: 7784593d8bb89559b2abad1fbbc6bbb90bf58852c8b2ed236548f10fd74fb2ad
