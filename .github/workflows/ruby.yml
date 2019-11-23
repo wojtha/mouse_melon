@@ -25,7 +25,7 @@ jobs:
 
     - name: Send code coverage
       run: |
-        echo "Git branch: $GIT_BRANCH"
+        echo "Git branch $GIT_BRANCH"
         codeclimate-test-reporter
       env:
         GIT_BRANCH: ${{GITHUB_REF/refs\/heads\//}}
