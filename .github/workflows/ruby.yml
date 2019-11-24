@@ -8,7 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Debug
+      uses: hmarr/debug-action@v1.0.0
 
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
@@ -20,12 +24,16 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
 
-    - name: Test with Rake
-      run: bundle exec rake coverage
-
-    - name: Send code coverage
+    - name: Prepare for test
       run: |
-        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
-        codeclimate-test-reporter
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        GIT_BRANCH="${GITHUB_REF/refs\/heads\//}" GIT_COMMIT_SHA=$GITHUB_SHA ./cc-test-reporter before-build
+
+    - name: Test with Rake
+      run: COVERAGE=1 bundle exec rspec --format progress --profile
+
+    - name: Report coverage
+      run: GIT_BRANCH="${GITHUB_REF/refs\/heads\//}" GIT_COMMIT_SHA=$GITHUB_SHA ./cc-test-reporter after-build -t simplecov --exit-code $?
       env:
-        CODECLIMATE_REPO_TOKEN: ${{secrets.CC_TEST_REPORTER_ID}}
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
